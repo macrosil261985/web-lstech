@@ -1,0 +1,66 @@
+
+
+
+
+
+#titulo-error {
+    margin-bottom: 15px;
+    background: #F2F2F2;
+        background-image: none;
+        background-repeat: repeat;
+        background-position-x: 0%;
+        background-position-y: 0%;
+        background-size: auto auto;
+    background-image: url(../images/fondoTitulos-min-min.png);
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+}
+
+#titulo-error h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    line-height: 1.1;
+    box-sizing: border-box;
+    display: block;
+    -webkit-margin-before: .83em;
+    -webkit-margin-after: .83em;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
+}
+
+p {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 300;
+}
+
+.column-title {
+    margin-top: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.column-title::after {
+    content: " ";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 40%;
+    border-bottom: 1px solid #FF5C0E;
+}
+
+.text-muted {
+    color: #000;
+    font-size: 25px;
+}
+
+.btn {
+    border-width: 0;
+        border-bottom-width: 0px;
+    border-bottom-width: 3px;
+    border-radius: 0;
+}

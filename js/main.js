@@ -1,31 +1,333 @@
-jQuery(function($) {'use strict';
+// LS Tech Partners - Modern JavaScript
 
-	// Navigation Scroll
-		(function($){
-		    $.fn.scrollingTo = function( opts ) {
-		        var defaults = {
-		            animationTime : 1000,
-		            easing : '',
-		            callbackBeforeTransition : function(){},
-		            callbackAfterTransition : function(){}
-		        };
+// Wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all functions
+    initScrollEffects();
+    initMobileMenu();
+    initScrollToTop();
+    initAnimations();
+    initContactForm();
+    
+    console.log('LS Tech Partners website loaded successfully!');
+});
 
-		        var config = $.extend( {}, defaults, opts );
+// Header scroll effect
+function initScrollEffects() {
+    const header = document.querySelector('.main-header');
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+}
 
-		        $(this).click(function(e){
-		            var eventVal = e;
-		            e.preventDefault();
+// Mobile menu functionality
+function initMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    const header = document.querySelector('.main-header');
+    
+    // Create mobile menu button if it doesn't exist
+    if (!document.querySelector('.mobile-menu-btn')) {
+        const mobileMenuBtn = document.createElement('button');
+        mobileMenuBtn.className = 'mobile-menu-btn';
+        mobileMenuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+        mobileMenuBtn.setAttribute('aria-label', 'Toggle mobile menu');
+        
+        // Insert before nav menu
+        const nav = document.querySelector('.main-nav');
+        nav.appendChild(mobileMenuBtn);
+        
+        // Add mobile menu styles
+        const style = document.createElement('style');
+        style.textContent = `
+            .mobile-menu-btn {
+                display: none;
+                background: none;
+                border: none;
+                font-size: 1.5rem;
+                color: var(--dark-color);
+                cursor: pointer;
+                padding: 0.5rem;
+            }
+            
+            @media (max-width: 768px) {
+                .mobile-menu-btn {
+                    display: block;
+                }
+                
+                .nav-menu {
+                    position: fixed;
+                    top: 100%;
+                    left: 0;
+                    right: 0;
+                    background: white;
+                    flex-direction: column;
+                    padding: 2rem;
+                    box-shadow: var(--shadow-lg);
+                    transform: translateY(-100%);
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all 0.3s ease;
+                    z-index: 1000;
+                }
+                
+                .nav-menu.active {
+                    transform: translateY(0);
+                    opacity: 1;
+                    visibility: visible;
+                }
+                
+                .nav-menu li {
+                    margin: 0.5rem 0;
+                }
+                
+                .nav-button {
+                    margin-top: 1rem !important;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add click event
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            const icon = this.querySelector('i');
+            
+            if (navMenu.classList.contains('active')) {
+                icon.className = 'fa-solid fa-times';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!nav.contains(e.target)) {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').className = 'fa-solid fa-bars';
+            }
+        });
+        
+        // Close menu when clicking on a link
+        navMenu.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A') {
+                navMenu.classList.remove('active');
+                mobileMenuBtn.querySelector('i').className = 'fa-solid fa-bars';
+            }
+        });
+    }
+}
 
-		            var $section = $(document).find( $(this).data('section') );
-		            if ( $section.length < 1 ) {
-		                return false;
-		            };
+// Smooth scroll to top button
+function initScrollToTop() {
+    // Create scroll to top button
+    const scrollTopBtn = document.createElement('button');
+    scrollTopBtn.className = 'scroll-top-btn';
+    scrollTopBtn.innerHTML = '<i class="fa-solid fa-arrow-up"></i>';
+    scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+    document.body.appendChild(scrollTopBtn);
+    
+    // Add styles
+    const style = document.createElement('style');
+    style.textContent = `
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+            z-index: 1000;
+        }
+        
+        .scroll-top-btn.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .scroll-top-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .scroll-top-btn {
+                bottom: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 300) {
+            scrollTopBtn.classList.add('visible');
+        } else {
+            scrollTopBtn.classList.remove('visible');
+        }
+    });
+    
+    // Scroll to top when clicked
+    scrollTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
 
-		            if ( $('html, body').is(':animated') ) {
-		                $('html, body').stop( true, true );
-		            };
+// Intersection Observer for animations
+function initAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements that should animate on scroll
+    const animatedElements = document.querySelectorAll('.feature-card, .section-title, .section-subtitle');
+    animatedElements.forEach(el => {
+        el.classList.add('scroll-reveal');
+        observer.observe(el);
+    });
+}
 
-		            var scrollPos = $section.offset().top;
+// Contact form enhancements
+function initContactForm() {
+    const contactForm = document.querySelector('.contact-form');
+    if (!contactForm) return;
+    
+    // Add loading state functionality
+    contactForm.addEventListener('submit', function(e) {
+        const submitBtn = contactForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        
+        // Show loading state
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+        submitBtn.disabled = true;
+        
+        // Reset after form submission (you might want to handle this differently based on your backend)
+        setTimeout(() => {
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }, 2000);
+    });
+    
+    // Real-time form validation
+    const inputs = contactForm.querySelectorAll('input, textarea, select');
+    inputs.forEach(input => {
+        input.addEventListener('blur', validateField);
+        input.addEventListener('input', clearFieldError);
+    });
+}
+
+// Form validation functions
+function validateField(e) {
+    const field = e.target;
+    const value = field.value.trim();
+    
+    // Remove previous error styling
+    clearFieldError(e);
+    
+    // Validate based on field type
+    if (field.required && !value) {
+        showFieldError(field, 'Este campo es obligatorio');
+        return false;
+    }
+    
+    if (field.type === 'email' && value) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) {
+            showFieldError(field, 'Por favor ingresa un email válido');
+            return false;
+        }
+    }
+    
+    if (field.type === 'tel' && value) {
+        const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,}$/;
+        if (!phoneRegex.test(value)) {
+            showFieldError(field, 'Por favor ingresa un teléfono válido');
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+function showFieldError(field, message) {
+    field.style.borderColor = 'var(--error-color)';
+    
+    // Remove existing error message
+    const existingError = field.parentNode.querySelector('.field-error');
+    if (existingError) {
+        existingError.remove();
+    }
+    
+    // Add error message
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'field-error';
+    errorDiv.textContent = message;
+    errorDiv.style.color = 'var(--error-color)';
+    errorDiv.style.fontSize = '0.875rem';
+    errorDiv.style.marginTop = '0.25rem';
+    
+    field.parentNode.appendChild(errorDiv);
+}
+
+function clearFieldError(e) {
+    const field = e.target;
+    field.style.borderColor = '#e2e8f0';
+    
+    const errorDiv = field.parentNode.querySelector('.field-error');
+    if (errorDiv) {
+        errorDiv.remove();
+    }
+}
+
+// Smooth scrolling for anchor links
+document.addEventListener('click', function(e) {
+    if (e.target.matches('a[href^="#"]')) {
+        e.preventDefault();
+        const targetId = e.target.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+            const headerHeight = document.querySelector('.main-header').offsetHeight;
+            const targetPosition = targetElement.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+});
 
 		            if ( $(window).scrollTop() == scrollPos ) {
 		                return false;

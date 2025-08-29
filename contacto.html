@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | LS Tech Partners</title>
+    <meta name="description" content="Contáctanos para discutir tus necesidades tecnológicas. Estamos aquí para ayudarte a transformar tu negocio.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    
+    <style>
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: var(--border-radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.25rem;
+        }
+        
+        .contact-details h4 {
+            margin-bottom: 0.25rem;
+            color: var(--dark-color);
+        }
+        
+        .contact-details p {
+            margin: 0;
+            color: var(--secondary-color);
+        }
+        
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .contact-details a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <nav class="main-nav">
+                <a href="index.html" class="logo">
+                    <img src="images/logo-blanco.png" alt="Logo LS Tech Partners" style="height: 40px;">
+                </a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="productos.html">Productos</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html" class="nav-button active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Contáctanos</h1>
+                    <p class="hero-subtitle">Estamos aquí para ayudarte a transformar tu negocio con tecnología de vanguardia. Conversemos sobre tu proyecto.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-section">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
+                    <!-- Información de contacto -->
+                    <div>
+                        <h2 style="margin-bottom: 2rem; color: var(--dark-color);">Información de Contacto</h2>
+                        
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Teléfono</h4>
+                                    <p><a href="tel:+56944450035">+56 9 4445 0035</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Email</h4>
+                                    <p><a href="mailto:c.labbe@lstechpartners.com">c.labbe@lstechpartners.com</a></p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Ubicación</h4>
+                                    <p>Santiago, Chile</p>
+                                </div>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fa-solid fa-clock"></i>
+                                </div>
+                                <div class="contact-details">
+                                    <h4>Horario de Atención</h4>
+                                    <p>Lunes a Viernes: 09:00 - 18:00<br>Soporte 24/7 disponible</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Formulario de contacto -->
+                    <div>
+                        <h2 style="margin-bottom: 2rem; color: var(--dark-color);">Envíanos un Mensaje</h2>
+                        
+                        <form class="contact-form" action="sendemail.php" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Empresa</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Asunto *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Selecciona un asunto</option>
+                                    <option value="Consulta General">Consulta General</option>
+                                    <option value="Infraestructura Data Center">Infraestructura Data Center</option>
+                                    <option value="Asesoría y Consultoría TI">Asesoría y Consultoría TI</option>
+                                    <option value="Desarrollo de Proyectos">Desarrollo de Proyectos</option>
+                                    <option value="Productos y Licencias">Productos y Licencias</option>
+                                    <option value="Soporte Técnico">Soporte Técnico</option>
+                                    <option value="Cotización">Solicitud de Cotización</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Mensaje *</label>
+                                <textarea id="message" name="message" placeholder="Cuéntanos sobre tu proyecto o consulta..." required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                <i class="fa-solid fa-paper-plane"></i> Enviar Mensaje
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-section bg-light">
+            <div class="container">
+                <h2 class="section-title">¿Necesitas una Respuesta Rápida?</h2>
+                <p class="section-subtitle">Para consultas urgentes o soporte técnico inmediato, no dudes en contactarnos directamente</p>
+                
+                <div style="display: flex; justify-content: center; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                    <a href="tel:+56944450035" class="btn btn-secondary" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-phone"></i> Llamar Ahora
+                    </a>
+                    
+                    <a href="https://wa.me/56944450035" target="_blank" class="btn btn-primary" style="display: flex; align-items: center; gap: 0.5rem; background: #25D366;">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                    
+                    <a href="mailto:c.labbe@lstechpartners.com" class="btn btn-secondary" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fa-solid fa-envelope"></i> Email Directo
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                     <img src="images/logo-oscuro.png" alt="Logo LS Tech Partners" style="width: 150px;">
+                    <p>Tu socio estratégico en soluciones tecnológicas.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navegación</h4>
+                    <ul>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="productos.html">Productos</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fa-solid fa-phone"></i> +56 9 4445 0035</p>
+                    <p><i class="fa-solid fa-envelope"></i> c.labbe@lstechpartners.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 LS Tech Partners. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Validación del formulario
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value.trim();
+            
+            if (!name || !email || !subject || !message) {
+                e.preventDefault();
+                alert('Por favor, completa todos los campos obligatorios.');
+                return;
+            }
+            
+            // Validar email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                e.preventDefault();
+                alert('Por favor, ingresa un email válido.');
+                return;
+            }
+        });
+    </script>
+</body>
+</html>

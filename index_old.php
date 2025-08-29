@@ -7,7 +7,7 @@
       return $texto;
    }
 
-   require('./PHPMailer/PHPMailerAutoload.php');
+   require('./PHPMailer			<p class="text-center wow fadeInDown animated" style="visibility: visible;"><i class="fa fa-mobile"></i>&nbsp +56 9 4445 0035  &nbsp &nbsp| &nbsp &nbsp  <i class="fa fa-link"></i>&nbsp <a target="_blank" href="http://www.lstechpartners.com" title="Servicios Integrales de Informática, Telecomunicación.">www.lstechpartners.com</a>  &nbsp &nbsp| &nbsp &nbsp  <i class="fa fa-envelope"></i>&nbsp <a href="mailto:c.labbe@lstechpartners.com">c.labbe@lstechpartners.com</a></p>PHPMailerAutoload.php');
    
    if(isset($_POST['enviarboton'])){
 
@@ -21,7 +21,7 @@
 			$error4 = '<div class="alert alert-danger error" role="alert">Ingrese un mensaje</div>';
 		}else{
 
-		$dest   = "administracion@axiodpm.com";
+		$dest   = "c.labbe@lstechpartners.com";
 		$nombre = 	quitar_tildes(isset($_POST['name'])?$_POST['name']:0);
 		$email  = 	quitar_tildes(isset($_POST['email'])?$_POST['email']:0);
 		$asunto = 	quitar_tildes(isset($_POST['subject'])?$_POST['subject']:0);
@@ -138,10 +138,10 @@
 				   <p>Atento a sus comentarios, cordiales saludos.<br><br></p>
 
 				   <div class="text-center col-md-3 col-xs-10 wow fadeInUp" data-wow-delay="100ms">
-						<img src="/images/logo.png" alt="logo empresa AXIO DPM" />
-						<P>www.axiodpm.com</P>
+						<img src="/images/logo.png" alt="logo empresa LS Tech Partners" />
+						<P>www.lstechpartners.com</P>
 						<P>+(56-9) 3118 7110</P>
-						<P>administracion@axiodpm.com</P>
+						<P>c.labbe@lstechpartners.com</P>
 				   </div>       
 
 				</div>
@@ -153,8 +153,8 @@
 		  $mail = new PHPMailer;
 		  $mail->isSendmail();
 		  $mail->From = $dest;
-		  $mail->FromName = "AXIO DPM";
-		  $mail->addAddress($dest , "AXIO DPM");
+		  $mail->FromName = "LS Tech Partners";
+		  $mail->addAddress($dest , "LS Tech Partners");
 		  $mail->addBCC($email, $nombre);
 		  $mail->Subject = utf8_decode($asunto);	
 		  $mail->msgHTML($cuerpo);
@@ -194,9 +194,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Somos una empresa que brinda servicios informáticos, enfocados en la integración de tecnología a las empresas, dando soluciones de optimización de recursos, además de dar soluciones a diferentes modelos de negocios. El trabajo es personalizado e íntegro, dando una solución de integración en un marco tecnológico en un bien de la producción empresarial.">
-    <meta name="author" content="AXIO DPM">
-    <title>Soluciones tecnológicas a medida para cada necesidad | AXIO DPM</title>
-	<meta property="title" content="Soluciones tecnológicas a medida para cada necesidad | AXIO DPM">
+    <meta name="author" content="LS Tech Partners">
+    <title>Soluciones tecnológicas a medida para cada necesidad | LS Tech Partners</title>
+	<meta property="title" content="Soluciones tecnológicas a medida para cada necesidad | LS Tech Partners">
 	<meta name="keywords" content="Digital Experience, Raqueo, Datacenter, Transformación Digital">
 	<meta name="robots" content="index, follow">
 
@@ -246,7 +246,7 @@
                     <!-- logo -->
                     <div class="navbar-brand">
                         <a class="smooth-scroll" data-section="#home" href="#home" >
-                            <img class="logo" src="./images/logo_blanco.png" alt="logo empresa AXIO DPM">
+                            <img class="logo" src="./images/logo_blanco.png" alt="logo empresa LS Tech Partners">
                         </a>
                     </div>
                     <!-- /logo -->
@@ -361,7 +361,7 @@
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Nuestros Servicios</h2>
                 <p class="text-center wow fadeInDown">Conscientes de la importancia del desarrollo tecnológico actual para el crecimiento de las empresas. 
-                	<br><b> AXIO DPM</b> ofrece servicios de TI que se adaptan a las necesidades de cada empresa, adecuando los servicios en términos de calidad, satisfacción y niveles de servicios en los proyectos tecnológicos.</p>
+                	<br><b> LS Tech Partners</b> ofrece servicios de TI que se adaptan a las necesidades de cada empresa, adecuando los servicios en términos de calidad, satisfacción y niveles de servicios en los proyectos tecnológicos.</p>
             </div>
 
             <div class="row">
@@ -426,7 +426,7 @@
 				</div>
 
 				<div class="col-sm-6 wow fadeInRight">
-                    <img class="img-responsive visible-desk logo-icono" src="./images/icono.png" alt="logo empresa AXIO DPM">
+                    <img class="img-responsive visible-desk logo-icono" src="./images/icono.png" alt="logo empresa LS Tech Partners">
                 </div>
 
 
@@ -496,8 +496,8 @@
 
             <div class="section-header">
                 <h2 class="section-title text-center wow fadeInDown">Bienvenido a nuestra compañia</h2> 
-                <center> <img class="axiologo" src="./images/logo.png" alt="logo empresa AXIO DPM"> </center>
-                <p class="text-center wow fadeInDown"><b>AXIO DPM</b> es una empresa chilena que nace con el fin de satisfacer la necesidad que manifiestan los clientes de recibir un servicio personalizado, eficiente y de excelencia en las áreas de tecnología.</p>
+                <center> <img class="axiologo" src="./images/logo.png" alt="logo empresa LS Tech Partners"> </center>
+                <p class="text-center wow fadeInDown"><b>LS Tech Partners</b> es una empresa chilena que nace con el fin de satisfacer la necesidad que manifiestan los clientes de recibir un servicio personalizado, eficiente y de excelencia en las áreas de tecnología.</p>
             </div>
 
             <div class="row">
@@ -528,7 +528,7 @@
 					 <div class="col-sm-6 col-md-4 col-lg-3 wow fadeInUp" data-wow-duration="300ms" data-wow-delay="300ms">
                         <div class="features-item">
                             <h3 class="features-title font-alt">Nuestros Valores</h3>
-                            <p>Los valores que ayudan a <b>AXIO DPM</b> a lograr su misión son el profesionalismo, compromiso con el éxito del cliente, lealtad y confidencialidad, responsabilidad y honestidad, agilidad y calidad en las soluciones y servicios entregados.</p>
+                            <p>Los valores que ayudan a <b>LS Tech Partners</b> a lograr su misión son el profesionalismo, compromiso con el éxito del cliente, lealtad y confidencialidad, responsabilidad y honestidad, agilidad y calidad en las soluciones y servicios entregados.</p>
                         </div>
                     </div>
 
@@ -602,7 +602,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <p class="text-center">
-                        www.axiodpm.com &copy; 2022.
+                        www.lstechpartners.com &copy; 2025.
                     </p>
                 </div>
             </div>
